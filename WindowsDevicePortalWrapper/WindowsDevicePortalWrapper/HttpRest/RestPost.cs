@@ -53,10 +53,10 @@ namespace Microsoft.Tools.WindowsDevicePortal
         {
             MemoryStream responseDataStream = null;
 
-            WebRequestHandler requestSettings = new WebRequestHandler();
+            var requestSettings = new HttpClientHandler();
             requestSettings.UseDefaultCredentials = false;
             requestSettings.Credentials = this.deviceConnection.Credentials;
-            requestSettings.ServerCertificateValidationCallback = this.ServerCertificateValidation;
+            requestSettings.ServerCertificateCustomValidationCallback = this.ServerCertificateValidation;
 
             using (HttpClient client = new HttpClient(requestSettings))
             {

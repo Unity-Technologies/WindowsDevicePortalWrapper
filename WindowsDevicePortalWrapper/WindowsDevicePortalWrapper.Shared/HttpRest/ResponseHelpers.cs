@@ -57,7 +57,7 @@ namespace Microsoft.Tools.WindowsDevicePortal
                             {
                                 response = serializer.ReadObject(outStream);
                             }
-                            catch (SerializationException ex)
+                            catch (SerializationException)
                             {
                                 // Assert on serialization failure.
                                 Debug.Assert(false, "Serialization failure encountered. Check DataContract types for a possible mismatch between expectations and reality");

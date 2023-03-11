@@ -66,16 +66,17 @@ namespace Microsoft.Tools.WindowsDevicePortal
         // See https://social.msdn.microsoft.com/Forums/en-US/ff098248-551c-4da9-8ba5-358a9f8ccc57/how-do-i-enable-useunsafeheaderparsing-from-code-net-20?forum=netfxnetcom
         private static bool ToggleAllowUnsafeHeaderParsing(bool enable)
         {
-            Type settingsSectionType = Assembly.GetAssembly(typeof(System.Net.Configuration.SettingsSection))?.GetType("System.Net.Configuration.SettingsSectionInternal");
-            if (settingsSectionType == null) { return false; }
+            // BUGBUG
+            //Type settingsSectionType = Assembly.GetAssembly(typeof(System.Net.Configuration.SettingsSection))?.GetType("System.Net.Configuration.SettingsSectionInternal");
+            //if (settingsSectionType == null) { return false; }
 
-            object anInstance = settingsSectionType.InvokeMember("Section", BindingFlags.Static | BindingFlags.GetProperty | BindingFlags.NonPublic, null, null, new object[] { });
-            if (anInstance == null) { return false; }
+            //object anInstance = settingsSectionType.InvokeMember("Section", BindingFlags.Static | BindingFlags.GetProperty | BindingFlags.NonPublic, null, null, new object[] { });
+            //if (anInstance == null) { return false; }
 
-            FieldInfo aUseUnsafeHeaderParsing = settingsSectionType.GetField("useUnsafeHeaderParsing", BindingFlags.NonPublic | BindingFlags.Instance);
-            if (aUseUnsafeHeaderParsing == null) { return false; }
+            //FieldInfo aUseUnsafeHeaderParsing = settingsSectionType.GetField("useUnsafeHeaderParsing", BindingFlags.NonPublic | BindingFlags.Instance);
+            //if (aUseUnsafeHeaderParsing == null) { return false; }
 
-            aUseUnsafeHeaderParsing.SetValue(anInstance, enable);
+            //aUseUnsafeHeaderParsing.SetValue(anInstance, enable);
 
             return true;
         }

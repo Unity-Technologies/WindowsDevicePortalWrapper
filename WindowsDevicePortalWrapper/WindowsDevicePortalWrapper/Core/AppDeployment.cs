@@ -31,10 +31,10 @@ namespace Microsoft.Tools.WindowsDevicePortal
                 this.deviceConnection.Connection,
                 InstallStateApi);
 
-            WebRequestHandler handler = new WebRequestHandler();
+            var handler = new HttpClientHandler();
             handler.UseDefaultCredentials = false;
             handler.Credentials = this.deviceConnection.Credentials;
-            handler.ServerCertificateValidationCallback = this.ServerCertificateValidation;
+            handler.ServerCertificateCustomValidationCallback = this.ServerCertificateValidation;
 
             using (HttpClient client = new HttpClient(handler))
             {

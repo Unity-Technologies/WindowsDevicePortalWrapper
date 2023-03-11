@@ -10,7 +10,7 @@ using System.IO;
 using System.Net;
 using System.Net.Http;
 #endif // !WINDOWS_UWP
-using System.Runtime.InteropServices.WindowsRuntime;
+//using System.Runtime.InteropServices.WindowsRuntime;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Json;
 using System.Security;
